@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 30% 97%;
+    --foreground: 150 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 25% 15%;
+
+    --primary: 142 55% 35%;
+    --primary-foreground: 45 100% 97%;
+
+    --secondary: 42 90% 55%;
+    --secondary-foreground: 150 25% 15%;
+
+    --muted: 45 20% 92%;
+    --muted-foreground: 150 10% 45%;
+
+    --accent: 25 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 45 15% 88%;
+    --input: 45 15% 88%;
+    --ring: 142 55% 35%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 142 30% 20%;
+    --sidebar-foreground: 45 100% 97%;
+    --sidebar-primary: 42 90% 55%;
+    --sidebar-primary-foreground: 150 25% 15%;
+    --sidebar-accent: 142 25% 30%;
+    --sidebar-accent-foreground: 45 100% 97%;
+    --sidebar-border: 142 20% 25%;
+    --sidebar-ring: 42 90% 55%;
+
+    /* Custom tokens */
+    --harvest: 42 90% 55%;
+    --harvest-foreground: 150 25% 15%;
+    --earth: 25 70% 50%;
+    --earth-foreground: 0 0% 100%;
+    --sky: 200 80% 55%;
+    --sky-foreground: 0 0% 100%;
+    --profit: 142 60% 45%;
+    --loss: 0 72% 51%;
+    --trend-up: 142 60% 45%;
+    --trend-down: 0 72% 51%;
+  }
+
+  .dark {
+    --background: 150 20% 8%;
+    --foreground: 45 30% 95%;
+    --card: 150 18% 12%;
+    --card-foreground: 45 30% 95%;
+    --popover: 150 18% 12%;
+    --popover-foreground: 45 30% 95%;
+    --primary: 142 55% 45%;
+    --primary-foreground: 150 25% 10%;
+    --secondary: 42 80% 50%;
+    --secondary-foreground: 150 25% 10%;
+    --muted: 150 15% 18%;
+    --muted-foreground: 45 15% 60%;
+    --accent: 25 60% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 150 15% 20%;
+    --input: 150 15% 20%;
+    --ring: 142 55% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Accessible focus states */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  [role="button"]:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50 shadow-lg;
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(142 45% 28%));
+  }
+
+  .gradient-harvest {
+    background: linear-gradient(135deg, hsl(var(--harvest)), hsl(35 85% 45%));
+  }
+
+  .gradient-earth {
+    background: linear-gradient(135deg, hsl(var(--earth)), hsl(15 60% 40%));
+  }
+
+  .gradient-sky {
+    background: linear-gradient(135deg, hsl(var(--sky)), hsl(210 70% 45%));
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--harvest)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
